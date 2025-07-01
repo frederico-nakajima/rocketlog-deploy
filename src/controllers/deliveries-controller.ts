@@ -22,6 +22,22 @@ class DeliveriesController {
     
         return response.status(201).json()
     }
+
+    async show(request:Request,response:Response){
+        const paramsSchema = z.object({
+            delivery_id:z.string().uuid(),            
+        })
+
+
+        const{ delivery_id } = paramsSchema.parse(request.params)
+
+        const delivery = await prisma.delivery.findUnique({
+            where: { id:delivery_id }
+        })
+
+
+        return response.json(delivery)
+    }
     async index (request:Request, response:Response){
         const deliveries = await prisma.delivery.findMany({
             include: {
