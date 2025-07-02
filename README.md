@@ -43,6 +43,7 @@ A API está em produção via Render:
 
 🔗 https://rocketlog-deploy-abb6.onrender.com
 
+---
 
 📦 Docker
 O docker-compose.yml é utilizado apenas para ambiente local.
